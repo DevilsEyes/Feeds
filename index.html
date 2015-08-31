@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>纹身大咖 - 广场</title>
+
+    <link rel="stylesheet" href="index.css">
+    <script src="wxsdk.js"></script>
+    <!--<script src="jquery-1.9.1.min.js"></script>-->
+
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+
+    <!--<script src="jquery.jsonp-2.4.0.min.js"></script>-->
+
+</head>
+
+
+<body>
+
+<div class="main row">
+
+    <div class="maincontent">
+        <div class="title">
+            <div>
+                <div class="nickname">{userInfo.nickname}</div>
+                <div class="pin">{region} {timeStr}</div>
+            </div>
+            <div class="avatar">
+                <loadimg class="head" src="{userInfo.avatar|images/avatar_default.jpg}"/>
+            </div>
+
+        </div>
+        <h1 class="main-h1">{content}</h1>
+
+        <div class="pic-box">
+        </div>
+
+        <div class="tagArea">
+            <img src="images/icon_tag.png" style="width:1.2rem;height: 1.2rem;margin-right: 10px">
+            {for tagArray}
+            <span class="tag">{v}</span>
+            {/for}
+        </div>
+
+        <div class="nav-tool">
+            <span class="icon_comment">{comment_count|0}</span>
+            <span class="icon_liked">{like_count|0}</span>
+            <!--<span class="icon_share"></span>-->
+        </div>
+    </div>
+    <dl id="pl_list">
+        <!--<dt>全部{comment_count}条评论...</dt>-->
+        {for comment_list}
+        <dd>
+            <div>
+                <loadimg src="{userInfo.avatar|images/avatar_default.jpg}"/>
+            </div>
+            <h6>{time|formatTime}</h6>
+
+            <div class="content">
+                <h2>{userInfo.nickname}</h2>
+
+                <p>{content|formatText}</p>
+            </div>
+        </dd>
+        {/for}
+    </dl>
+</div>
+<footer id="down_banner"><a href="http://www.meizhanggui.cc/"><img src="images/banner.jpg"/></a></footer>
+
+<script src="quo.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
