@@ -89,7 +89,7 @@ function parseTpl(tpl, res) {
 		var ret = ''; //console.log([str,key,content]);
 		if (res[key] && res[key].length) {
 			for (var i in res[key]) {
-				if ($.isObject(res[key][i])) {
+				if (typeof(res[key][i])=='object') {
 					ret += parse(content, res[key][i]);
 				} else {
 					ret += content.replace('{v}', res[key][i]).replace('{k}', i);
@@ -128,8 +128,9 @@ function formatTime(unixtime) {
 	}
 	return str;
 }!(function() {
-	var params;
-	params = $.parseParam() || {};
+	var params = {};
+	var feed_id = location.search.substr(1).match(/feed_id=([^\b&]*)/)[1];
+	params.feed_id = feed_id;
 	if (!params.feed_id) {
 		alert('参数有误！');
 		return false;
