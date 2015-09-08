@@ -161,11 +161,11 @@ function formatTime(unixtime) {
 					var node = '<loadimg src="'+data.image_urls[i] + '?imageView2/1/w/' + imgWidth + '/h/' + imgWidth+'"/>';
 					$('.pic-box').append(node);
 				}
-				window.IMGs = data.image_urls;
 			}else{
 				var node = '<loadimg src="'+data.image_urls[0] + '?imageView2/1/w/640/h/640"/>';
 				$('.pic-box').append(node);
 			}
+			window.IMGs = data.image_urls;
 			data.tagArray = data.tag.split('#');
 			if(data.tagArray.length>3)data.tagArray.slice(0,3);
 			if(data.tagArray.length==0)$('.tagArea').hide();
