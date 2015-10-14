@@ -167,7 +167,7 @@ function formatTime(unixtime) {
 			}
 			window.IMGs = data.image_urls;
 			data.tagArray = data.tag.split('#');
-			if(data.tagArray.length>3)data.tagArray.slice(0,3);
+			if(data.tagArray.length>3)data.tagArray = data.tagArray.slice(0,3);
 			if(data.tagArray.length==0)$('.tagArea').hide();
 
 			console.dir(data);
